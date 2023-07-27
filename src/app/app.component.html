@@ -349,7 +349,9 @@
     </svg>
 
   </div>
-
+  <p><app-auth-button></app-auth-button></p>
+  {{ auth.isAuthenticated$ | async }}
+  {{ auth.isLoading$ | async }}
   <!-- Resources -->
   <h2>Resources</h2>
   <p>Here are some links to help you get started:</p>

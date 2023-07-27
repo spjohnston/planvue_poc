@@ -6,22 +6,22 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AuthModule } from '@auth0/auth0-angular';
+import { AuthButtonComponent } from './components/auth-button/auth-button.component';
+import { environment } from 'src/environments/environment';
+
+import { MatButtonModule } from '@angular/material/button';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    AuthButtonComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    AuthModule.forRoot({
-      domain: 'dev-svfxidsxvj5w0nvq.us.auth0.com',
-      clientId: 'Q4uuPVkuU8ANsGSou0j0UaBJvWBY7QaF',
-      authorizationParams: {
-        redirect_uri: window.location.origin
-      }
-    })
+    AuthModule.forRoot(environment.auth),
+    MatButtonModule
   ],
   providers: [],
   bootstrap: [AppComponent]
