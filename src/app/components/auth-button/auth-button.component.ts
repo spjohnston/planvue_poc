@@ -7,12 +7,12 @@ import { DOCUMENT } from '@angular/common';
   template: `
     <ng-container *ngIf="auth.isAuthenticated$ | async; else loggedOut">
       <button mat-raised-button color="warn" (click)="logout()">
-        Logout
+        Log Out
       </button>
     </ng-container>
 
     <ng-template #loggedOut>
-      <button mat-raised-button color="primary" (click)="login()">Login</button>
+      <button mat-raised-button color="primary" (click)="login()">Log In</button>
     </ng-template>
   `,
   styles: [],

@@ -1,0 +1,41 @@
+:host {
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  height: 100vh;
+}
+
+#homeLink {
+  font-weight: bold;
+  font-style: italic;
+  font-size: 100%;
+}
+
+mat-toolbar span.spacer {
+  flex: 1 1 auto;
+}
+
+mat-toolbar button.active::before {
+  content: '[ ';
+}
+mat-toolbar button.active::after {
+  content: ' ]';
+}
+
+footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #757575;
+  border-top: 1px solid #212121;
+  padding: 2px 0px;
+}
+
+footer > img {
+  height: 30px; 
+  max-width: auto;
+}
+
+footer > span {
+  color: white;
+  padding-right: 10px;
+}
