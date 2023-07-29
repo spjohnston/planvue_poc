@@ -7,4 +7,16 @@ import { Component } from '@angular/core';
 })
 export class VenuesComponent {
 
+  search = () => {
+    console.log('searching');
+  }
+
+  showList = () => {
+    console.log('showing venues list');
+  }
+
+  showGrid = () => {
+    console.log('showing venues grid');
+  }
+
 }

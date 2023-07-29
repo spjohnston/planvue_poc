@@ -1,0 +1,11 @@
+section.sub-header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 10px;
+}
+
+section.sub-header span.controls button {
+  margin-left: 10px;
+}

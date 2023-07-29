@@ -1,1 +1,6 @@
-<p>venues works!</p>
+<app-list-page [title]="'Venues'"
+  (searchClicked)="search()"
+  (listClicked)="showList()"
+  (gridClicked)="showGrid()">
+  list content
+</app-list-page>

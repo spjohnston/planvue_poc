@@ -20,6 +20,8 @@ import { VenuesComponent } from './components/pages/venues/venues.component';
 import { LocationsComponent } from './components/pages/locations/locations.component';
 import { FavoritesComponent } from './components/pages/favorites/favorites.component';
 import { UsersComponent } from './components/pages/users/users.component';
+import { UserComponent } from './components/user/user.component';
+import { ListPageComponent } from './components/list-page/list-page.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +32,9 @@ import { UsersComponent } from './components/pages/users/users.component';
     VenuesComponent,
     LocationsComponent,
     FavoritesComponent,
-    UsersComponent
+    UsersComponent,
+    UserComponent,
+    ListPageComponent
   ],
   imports: [
     BrowserModule,

@@ -6,5 +6,15 @@ import { Component } from '@angular/core';
   styleUrls: ['./locations.component.css']
 })
 export class LocationsComponent {
+  search = () => {
+    console.log('searching');
+  }
 
+  showList = () => {
+    console.log('showing locations list');
+  }
+
+  showGrid = () => {
+    console.log('showing locations grid');
+  }
 }

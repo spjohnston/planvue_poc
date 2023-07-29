@@ -1,1 +1,6 @@
-<p>favorites works!</p>
+<app-list-page [title]="'Favorites'"
+  (searchClicked)="search()"
+  (listClicked)="showList()"
+  (gridClicked)="showGrid()">
+  list content
+</app-list-page>

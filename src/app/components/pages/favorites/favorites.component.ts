@@ -6,5 +6,15 @@ import { Component } from '@angular/core';
   styleUrls: ['./favorites.component.css']
 })
 export class FavoritesComponent {
+  search = () => {
+    console.log('searching');
+  }
 
+  showList = () => {
+    console.log('showing favorites list');
+  }
+
+  showGrid = () => {
+    console.log('showing favorites grid');
+  }
 }

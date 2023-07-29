@@ -1,0 +1,17 @@
+<div class="page">
+  <section class="sub-header">
+    <h1>{{ title }}</h1>
+    <span class="controls">
+      <button mat-mini-fab color="primary" aria-label="Search" (click)="search()">
+        <mat-icon>search</mat-icon>
+      </button>
+      <button mat-mini-fab color="accent" aria-label="List View" (click)="viewList()">
+        <mat-icon>list-outlined</mat-icon>
+      </button>
+      <button mat-mini-fab color="accent" aria-label="Tile View" (click)="viewGrid()">
+        <mat-icon>grid_view</mat-icon>
+      </button>
+    </span>
+  </section>
+  <ng-content></ng-content>
+</div>

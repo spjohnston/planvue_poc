@@ -1,1 +1,6 @@
-<p>locations works!</p>
+<app-list-page [title]="'Locations'"
+  (searchClicked)="search()"
+  (listClicked)="showList()"
+  (gridClicked)="showGrid()">
+  list content
+</app-list-page>

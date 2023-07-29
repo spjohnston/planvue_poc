@@ -1,5 +1,11 @@
-body, app-root {
-  height: 100vh;
+body {
   padding:0; margin:0;
-  display: block;
+}
+
+app-root {
+  height: 100vh;
+}
+
+.page {
+  padding: 20px; 
 }

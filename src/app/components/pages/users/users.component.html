@@ -1,1 +1,6 @@
-<p>users works!</p>
+<app-list-page [title]="'Users'"
+  (searchClicked)="search()"
+  (listClicked)="showList()"
+  (gridClicked)="showGrid()">
+  list content
+</app-list-page>
