@@ -27,5 +27,6 @@
     </mat-expansion-panel-header>
     <ng-content select="[search]"></ng-content>
   </mat-expansion-panel>
-  <ng-content></ng-content>
+  <ng-content *ngIf="view === 'list'" select="[list]"></ng-content>
+  <ng-content *ngIf="view === 'grid'" select="[grid]"></ng-content>
 </div>

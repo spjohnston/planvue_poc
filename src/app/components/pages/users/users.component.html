@@ -2,8 +2,9 @@
   (searchClicked)="search()"
   (listClicked)="showList()"
   (gridClicked)="showGrid()">
-  <div search>
+  <ng-container search>
     search users
-  </div>
-  list content
+  </ng-container>
+  <ng-container list>users list</ng-container>
+  <ng-container grid>users grid</ng-container>
 </app-list-page>
