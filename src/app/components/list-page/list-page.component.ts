@@ -6,6 +6,9 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
   styleUrls: ['./list-page.component.css']
 })
 export class ListPageComponent {
+  view:string = 'list';
+  showSearch:boolean = false;
+
   @Input({ required: true })
   title!:String;
 
@@ -14,19 +17,30 @@ export class ListPageComponent {
 
   @Output()
   listClicked: EventEmitter<void> = new EventEmitter<void>();
-  
+
   @Output()
   gridClicked: EventEmitter<void> = new EventEmitter<void>();
 
-  search = () => {
+  headerClick = ($evt:any) => {
+    $evt.stopPropagation();
+    console.log('click');
+  }
+
+  search = ($evt:any) => {
+    $evt.stopPropagation();
+    this.showSearch = !this.showSearch;
     this.searchClicked.emit();
   }
 
-  viewList = () => {
+  viewList = ($evt:any) => {
+    $evt.stopPropagation();
+    this.view = 'list';
     this.listClicked.emit();
   }
 
-  viewGrid = () => {
+  viewGrid = ($evt:any) => {
+    $evt.stopPropagation();
+    this.view = 'grid';
     this.gridClicked.emit();
   }
 }

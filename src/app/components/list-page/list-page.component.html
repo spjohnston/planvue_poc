@@ -1,17 +1,30 @@
 <div class="page">
-  <section class="sub-header">
-    <h1>{{ title }}</h1>
-    <span class="controls">
-      <button mat-mini-fab color="primary" aria-label="Search" (click)="search()">
-        <mat-icon>search</mat-icon>
-      </button>
-      <button mat-mini-fab color="accent" aria-label="List View" (click)="viewList()">
-        <mat-icon>list-outlined</mat-icon>
-      </button>
-      <button mat-mini-fab color="accent" aria-label="Tile View" (click)="viewGrid()">
-        <mat-icon>grid_view</mat-icon>
-      </button>
-    </span>
-  </section>
+  <mat-expansion-panel class="sub-header" hideToggle [expanded]="showSearch" 
+      (opened)="showSearch = true" (closed)="showSearch = false">
+    <mat-expansion-panel-header>
+      <mat-panel-title (click)="headerClick($event)">
+       <h1>{{ title }}</h1>
+      </mat-panel-title>
+      <mat-panel-description (click)="headerClick($event)">
+        <span class="controls">
+          <button mat-icon-button [color]="showSearch ? 'accent' : 'primary'" 
+              (click)="search($event)"
+              aria-label="Search">
+            <mat-icon>search</mat-icon>
+          </button>
+          <button mat-icon-button [color]="view === 'list' ? 'accent' : 'primary'" 
+              (click)="viewList($event)" 
+              aria-label="List View">
+            <mat-icon>list-outlined</mat-icon>
+          </button>
+          <button mat-icon-button [color]="view === 'grid' ? 'accent' : 'primary'" 
+              (click)="viewGrid($event)"
+              aria-label="Tile View">
+            <mat-icon>grid_view</mat-icon>
+          </button>
+        </span>
+      </mat-panel-description>
+    </mat-expansion-panel-header>
+  </mat-expansion-panel>
   <ng-content></ng-content>
 </div>

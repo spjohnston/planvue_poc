@@ -9,6 +9,7 @@ import { AuthModule } from '@auth0/auth0-angular';
 
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
+import { MatExpansionModule } from '@angular/material/expansion';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatToolbarModule } from '@angular/material/toolbar';
 
@@ -42,6 +43,7 @@ import { ListPageComponent } from './components/list-page/list-page.component';
     BrowserAnimationsModule,
     AuthModule.forRoot(environment.auth),
     MatButtonModule,
+    MatExpansionModule,
     MatIconModule,
     MatMenuModule,
     MatToolbarModule
