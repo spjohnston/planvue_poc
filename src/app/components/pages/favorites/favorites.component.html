@@ -1,5 +1,5 @@
 <app-list-page [title]="'Favorites'"
-  (searchClicked)="search()"
+  (searchToggled)="searchToggled($event)"
   (listClicked)="showList()"
   (gridClicked)="showGrid()">
   <ng-container search>

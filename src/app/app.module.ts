@@ -11,6 +11,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MatMenuModule } from '@angular/material/menu';
+import { MatTableModule } from '@angular/material/table';
 import { MatToolbarModule } from '@angular/material/toolbar';
 
 import { WelcomeComponent } from './components/pages/welcome/welcome.component';
@@ -23,6 +24,7 @@ import { FavoritesComponent } from './components/pages/favorites/favorites.compo
 import { UsersComponent } from './components/pages/users/users.component';
 import { UserComponent } from './components/user/user.component';
 import { ListPageComponent } from './components/list-page/list-page.component';
+import { VenueListComponent } from './components/venue-list/venue-list.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +37,8 @@ import { ListPageComponent } from './components/list-page/list-page.component';
     FavoritesComponent,
     UsersComponent,
     UserComponent,
-    ListPageComponent
+    ListPageComponent,
+    VenueListComponent
   ],
   imports: [
     BrowserModule,
@@ -46,6 +49,7 @@ import { ListPageComponent } from './components/list-page/list-page.component';
     MatExpansionModule,
     MatIconModule,
     MatMenuModule,
+    MatTableModule,
     MatToolbarModule
   ],
   providers: [],

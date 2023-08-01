@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Inject } from '@angular/core';
+import { VenueService } from 'src/app/services/venue.service';
 
 @Component({
   selector: 'app-venues',
@@ -7,8 +8,14 @@ import { Component } from '@angular/core';
 })
 export class VenuesComponent {
 
-  search = () => {
-    console.log('searching');
+  constructor(private venuesService:VenueService) {}
+
+  getVenues = () => {
+    return this.venuesService.getVenues();
+  }
+
+  searchToggled = (showingSearch:boolean) => {
+    console.log('searching ', showingSearch);
   }
 
   showList = () => {

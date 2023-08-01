@@ -13,7 +13,7 @@ export class ListPageComponent {
   title!:String;
 
   @Output()
-  searchClicked: EventEmitter<void> = new EventEmitter<void>();
+  searchToggled: EventEmitter<boolean> = new EventEmitter<boolean>();
 
   @Output()
   listClicked: EventEmitter<void> = new EventEmitter<void>();
@@ -29,7 +29,7 @@ export class ListPageComponent {
   search = ($evt:any) => {
     $evt.stopPropagation();
     this.showSearch = !this.showSearch;
-    this.searchClicked.emit();
+    this.searchToggled.emit(this.showSearch);
   }
 
   viewList = ($evt:any) => {

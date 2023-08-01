@@ -1,6 +1,5 @@
 import { Route } from "@angular/router";
 import { VenuesComponent } from "./components/pages/venues/venues.component";
-import { Page } from "./models/page";
 import { LocationsComponent } from "./components/pages/locations/locations.component";
 import { FavoritesComponent } from "./components/pages/favorites/favorites.component";
 import { UsersComponent } from "./components/pages/users/users.component";

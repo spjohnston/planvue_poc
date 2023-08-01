@@ -6,8 +6,8 @@ import { Component } from '@angular/core';
   styleUrls: ['./favorites.component.css']
 })
 export class FavoritesComponent {
-  search = () => {
-    console.log('searching');
+  searchToggled = (showingSearch:boolean) => {
+    console.log('searching ', showingSearch);
   }
 
   showList = () => {

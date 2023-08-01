@@ -6,8 +6,8 @@ import { Component } from '@angular/core';
   styleUrls: ['./locations.component.css']
 })
 export class LocationsComponent {
-  search = () => {
-    console.log('searching');
+  searchToggled = (showingSearch:boolean) => {
+    console.log('searching ', showingSearch);
   }
 
   showList = () => {

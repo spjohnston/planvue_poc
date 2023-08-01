@@ -12,8 +12,9 @@ mat-expansion-panel-header {
   cursor: default;
 }
 
-mat-panel-title h1 {
+mat-panel-title h2 {
   margin: 0px;
+  font-style: italic;
 }
 
 mat-panel-description {
