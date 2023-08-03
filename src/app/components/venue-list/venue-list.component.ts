@@ -1,21 +1,42 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnDestroy, OnInit } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
+import { Subscription } from 'rxjs';
 import { Venue } from 'src/app/models/venue';
+import { VenueService } from 'src/app/services/venue.service';
 
 @Component({
   selector: 'app-venue-list',
   templateUrl: './venue-list.component.html',
   styleUrls: ['./venue-list.component.css']
 })
-export class VenueListComponent implements OnInit {
+export class VenueListComponent implements OnInit, OnDestroy {
   
   columns = ["name", "createdBy", "createdOn", "modifiedBy", "modifiedOn"];
 
-  @Input({required: true})
-  venues!: Venue[];
   datasource = new MatTableDataSource<Venue>();
 
+  filterSubscription: Subscription;
+
+  constructor(private venueService:VenueService) {
+    this.filterSubscription = venueService.venueFilter$.subscribe(
+      venueFilter => {
+        let filterValue = venueFilter.text?.trim().toLowerCase() || '';
+        this.datasource.filter = filterValue;
+      }
+    );
+  }
+
   ngOnInit(): void {
-    this.datasource.data = this.venues;
+    this.datasource.data = this.venueService.getVenues();
+    this.datasource.filterPredicate = function (venue:Venue, filter:string) {
+      return !filter || (
+        venue.name.toLocaleLowerCase().indexOf(filter) != -1 ||
+        venue.createdBy.name?.toLocaleLowerCase().indexOf(filter) != -1
+      );
+    };
+  }
+
+  ngOnDestroy(): void {
+    this.filterSubscription.unsubscribe();
   }
 }

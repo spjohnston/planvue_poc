@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Venue } from '../models/venue';
+import { VenueFilter } from '../models/venue-filter';
+import { Subject } from 'rxjs';
 
 export const VENUES:Venue[] = [
   {
@@ -52,7 +54,14 @@ export const VENUES:Venue[] = [
 })
 export class VenueService {
 
+  private venueFilterSource = new Subject<VenueFilter>();
+  venueFilter$ = this.venueFilterSource.asObservable();
+
   constructor() { }
+
+  updateFilter(venueFilter:VenueFilter): void {
+    this.venueFilterSource.next(venueFilter);
+  }
 
   getVenues(): Venue[] {
     return VENUES.sort((v1:Venue, v2:Venue) => v1.name > v2.name ? 1 : -1 );

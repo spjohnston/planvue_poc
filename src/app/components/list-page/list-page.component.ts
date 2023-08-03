@@ -23,7 +23,7 @@ export class ListPageComponent {
 
   headerClick = ($evt:any) => {
     $evt.stopPropagation();
-    console.log('click');
+    console.log('filter header clicked...will toggle filter');
   }
 
   search = ($evt:any) => {

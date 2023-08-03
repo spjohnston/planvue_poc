@@ -9,7 +9,9 @@ import { AuthModule } from '@auth0/auth0-angular';
 
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
+import { MatInputModule } from '@angular/material/input';
 import { MatExpansionModule } from '@angular/material/expansion';
+import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatTableModule } from '@angular/material/table';
 import { MatToolbarModule } from '@angular/material/toolbar';
@@ -47,7 +49,9 @@ import { VenueListComponent } from './components/venue-list/venue-list.component
     AuthModule.forRoot(environment.auth),
     MatButtonModule,
     MatExpansionModule,
+    MatFormFieldModule,
     MatIconModule,
+    MatInputModule,
     MatMenuModule,
     MatTableModule,
     MatToolbarModule

@@ -1,4 +1,5 @@
-import { Component, Inject } from '@angular/core';
+import { Component, EventEmitter, Inject, Input, Output } from '@angular/core';
+import { MatInput } from '@angular/material/input';
 import { VenueService } from 'src/app/services/venue.service';
 
 @Component({
@@ -7,15 +8,21 @@ import { VenueService } from 'src/app/services/venue.service';
   styleUrls: ['./venues.component.css']
 })
 export class VenuesComponent {
+  
+  @Input({required: true})
+  filterValue:string = '';
 
   constructor(private venuesService:VenueService) {}
 
-  getVenues = () => {
-    return this.venuesService.getVenues();
-  }
-
   searchToggled = (showingSearch:boolean) => {
-    console.log('searching ', showingSearch);
+    console.log('resetting filter');
+    this.filterValue = '';
+    this.venuesService.updateFilter(
+      {
+        text: this.filterValue,
+        active: true
+      }
+    );
   }
 
   showList = () => {
@@ -26,4 +33,11 @@ export class VenuesComponent {
     console.log('showing venues grid');
   }
 
+  filterUpdated = (event: Event) => {
+    this.filterValue = (event.target as HTMLInputElement).value;
+    this.venuesService.updateFilter({
+      'text': this.filterValue,
+      'active': false
+    })
+  }
 }

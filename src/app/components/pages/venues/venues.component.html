@@ -3,8 +3,16 @@
   (listClicked)="showList()"
   (gridClicked)="showGrid()">
   <ng-container search>
-    search venues
+    <mat-form-field>
+      <mat-label>Filter</mat-label>
+      <input matInput [value]="filterValue" (keyup)="filterUpdated($event)">
+    </mat-form-field>
   </ng-container>
-  <ng-container list><app-venue-list [venues]="getVenues()"></app-venue-list></ng-container>
+  <!--The list view of venues-->
+  <ng-container list>
+    <app-venue-list></app-venue-list>
+  </ng-container>
+  
+    <!--The grid/tile view of venues-->
   <ng-container grid>venues grid</ng-container>
 </app-list-page>
