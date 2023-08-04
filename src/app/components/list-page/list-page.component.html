@@ -1,6 +1,6 @@
 <div class="page">
   <mat-expansion-panel class="sub-header" hideToggle [expanded]="showFilter" 
-      (opened)="setFilterFlag(true)" (closed)="setFilterFlag(false)">
+      (afterExpand)="setFilterFlag(true)" (afterCollapse)="setFilterFlag(false)">
     <mat-expansion-panel-header>
       <mat-panel-title (click)="headerClick($event)">
        <h2>{{ title }}</h2>
