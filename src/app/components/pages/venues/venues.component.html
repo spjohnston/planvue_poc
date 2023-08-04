@@ -1,11 +1,11 @@
 <app-list-page title="Venues"
-  (searchToggled)="searchToggled($event)"
+  (filterToggled)="filterToggled($event)"
   (listClicked)="showList()"
   (gridClicked)="showGrid()">
-  <ng-container search>
+  <ng-container filter>
     <mat-form-field>
       <mat-label>Filter</mat-label>
-      <input matInput [value]="filterValue" (keyup)="filterUpdated($event)">
+      <input #filter matInput [value]="filterValue" (keyup)="filterUpdated($event)">
     </mat-form-field>
   </ng-container>
   <!--The list view of venues-->

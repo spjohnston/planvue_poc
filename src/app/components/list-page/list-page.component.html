@@ -1,15 +1,15 @@
 <div class="page">
-  <mat-expansion-panel class="sub-header" hideToggle [expanded]="showSearch" 
-      (opened)="showSearch = true" (closed)="showSearch = false">
+  <mat-expansion-panel class="sub-header" hideToggle [expanded]="showFilter" 
+      (opened)="setFilterFlag(true)" (closed)="setFilterFlag(false)">
     <mat-expansion-panel-header>
       <mat-panel-title (click)="headerClick($event)">
        <h2>{{ title }}</h2>
       </mat-panel-title>
       <mat-panel-description (click)="headerClick($event)">
         <span class="controls">
-          <button mat-icon-button [color]="showSearch ? 'accent' : 'primary'" 
-              (click)="search($event)"
-              aria-label="Search">
+          <button mat-icon-button [color]="showFilter ? 'accent' : 'primary'" 
+              (click)="filter($event)"
+              aria-label="Filter">
             <mat-icon>search</mat-icon>
           </button>
           <button mat-icon-button [color]="view === 'list' ? 'accent' : 'primary'" 
@@ -25,7 +25,7 @@
         </span>
       </mat-panel-description>
     </mat-expansion-panel-header>
-    <ng-content select="[search]"></ng-content>
+    <ng-content select="[filter]"></ng-content>
   </mat-expansion-panel>
   <ng-content *ngIf="view === 'list'" select="[list]"></ng-content>
   <ng-content *ngIf="view === 'grid'" select="[grid]"></ng-content>

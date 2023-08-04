@@ -1,9 +1,9 @@
 <app-list-page [title]="'Users'"
-  (searchToggled)="searchToggled($event)"
+  (filterToggled)="showFilter($event)"
   (listClicked)="showList()"
   (gridClicked)="showGrid()">
-  <ng-container search>
-    search users
+  <ng-container filter>
+    filter users
   </ng-container>
   <ng-container list>users list</ng-container>
   <ng-container grid>users grid</ng-container>

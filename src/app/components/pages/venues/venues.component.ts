@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Inject, Input, Output } from '@angular/core';
+import { Component, ElementRef, EventEmitter, Inject, Input, Output, ViewChild } from '@angular/core';
 import { MatInput } from '@angular/material/input';
 import { VenueService } from 'src/app/services/venue.service';
 
@@ -8,21 +8,28 @@ import { VenueService } from 'src/app/services/venue.service';
   styleUrls: ['./venues.component.css']
 })
 export class VenuesComponent {
-  
+
+  @ViewChild('filter') 
+  filter!: ElementRef<HTMLInputElement>;
+
   @Input({required: true})
   filterValue:string = '';
 
   constructor(private venuesService:VenueService) {}
 
-  searchToggled = (showingSearch:boolean) => {
-    console.log('resetting filter');
-    this.filterValue = '';
-    this.venuesService.updateFilter(
-      {
-        text: this.filterValue,
-        active: true
-      }
-    );
+  filterToggled = (showingFilter:boolean) => {
+    if (showingFilter) {
+      this.filter.nativeElement.focus();
+    } else {
+      console.log('resetting filter');
+      this.filterValue = '';
+      this.venuesService.updateFilter(
+        {
+          text: this.filterValue,
+          active: true
+        }
+      );
+    }
   }
 
   showList = () => {

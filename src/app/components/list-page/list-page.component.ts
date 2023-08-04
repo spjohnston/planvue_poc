@@ -7,13 +7,13 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 })
 export class ListPageComponent {
   view:string = 'list';
-  showSearch:boolean = false;
+  showFilter:boolean = false;
 
   @Input({ required: true })
   title!:String;
 
   @Output()
-  searchToggled: EventEmitter<boolean> = new EventEmitter<boolean>();
+  filterToggled: EventEmitter<boolean> = new EventEmitter<boolean>();
 
   @Output()
   listClicked: EventEmitter<void> = new EventEmitter<void>();
@@ -26,10 +26,14 @@ export class ListPageComponent {
     console.log('filter header clicked...will toggle filter');
   }
 
-  search = ($evt:any) => {
+  filter = ($evt:any) => {
     $evt.stopPropagation();
-    this.showSearch = !this.showSearch;
-    this.searchToggled.emit(this.showSearch);
+    this.showFilter = !this.showFilter;
+  }
+
+  setFilterFlag = (showFilter:boolean) => {
+    this.showFilter = showFilter;
+    this.filterToggled.emit(this.showFilter);
   }
 
   viewList = ($evt:any) => {

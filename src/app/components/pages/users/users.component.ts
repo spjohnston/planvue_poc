@@ -6,8 +6,8 @@ import { Component } from '@angular/core';
   styleUrls: ['./users.component.css']
 })
 export class UsersComponent {
-  searchToggled = (showingSearch:boolean) => {
-    console.log('searching ', showingSearch);
+  showFilter = (showingFilter:boolean) => {
+    console.log('filtering ', showingFilter);
   }
 
   showList = () => {
