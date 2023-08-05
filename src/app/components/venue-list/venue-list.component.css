@@ -4,3 +4,11 @@ td.no-match {
   font-size: medium;
   font-style: italic;
 }
+
+tr.venue-row {
+  cursor: pointer;
+}
+tr.venue-row:hover {
+  background-color: rgba(0, 0, 0, 0.02);
+  /* color: red; */
+}

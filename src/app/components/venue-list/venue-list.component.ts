@@ -52,4 +52,8 @@ export class VenueListComponent implements OnInit, OnDestroy {
     return this.venuesAreFiltered ? 
       'No venues found matching your filter criteria.' : 'No venues found.'
   }
+
+  selectVenue(venue:Venue):void  {
+    console.log(venue);
+  }
 }

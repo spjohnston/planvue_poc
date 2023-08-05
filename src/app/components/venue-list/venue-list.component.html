@@ -31,7 +31,8 @@
       </ng-container>
 
       <tr mat-header-row *matHeaderRowDef="columns; sticky: true"></tr>
-      <tr mat-row *matRowDef="let row; columns: columns;"></tr>
+      <tr mat-row *matRowDef="let venue; columns: columns;" class="venue-row"
+        (click)="selectVenue(venue.id)"></tr>
       <tr class="mat-row" *matNoDataRow>
         <td class="mat-cell no-match" [attr.colspan]="columns.length">{{ getNoDataMessage() }}</td>
       </tr>
