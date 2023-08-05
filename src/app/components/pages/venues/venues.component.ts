@@ -17,29 +17,41 @@ export class VenuesComponent {
 
   constructor(private venuesService:VenueService) {}
 
-  filterToggled = (showingFilter:boolean) => {
+  /**
+   * This is a callback from the ListPageComponent when the "Filter" button 
+   * is toggled. Perform setup/cleanup actions here for showing/hiding the
+   * filter component.
+   */
+  filterVenuesToggled = (showingFilter:boolean) => {
     if (showingFilter) {
       this.filter.nativeElement.focus();
     } else {
-      console.log('resetting filter');
+      console.log('resetting venues filter');
       this.filterValue = '';
-      this.venuesService.updateFilter(
-        {
-          text: this.filterValue,
-          active: true
-        }
-      );
+      this.venuesService.updateFilter(null);
     }
   }
 
-  showList = () => {
+  /**
+   * This is a callback from the ListPageComponent when the "List" button 
+   * is clicked.
+   */
+  showVenuesList = () => {
     console.log('showing venues list');
   }
 
-  showGrid = () => {
+  /**
+   * This is a callback from the ListPageComponent when the "Grid" button 
+   * is clicked.
+   */
+  showVenuesGrid = () => {
     console.log('showing venues grid');
   }
 
+  /**
+   * This function is called on keyup from the `filter` input field
+   * @param event the keyup event
+   */
   filterUpdated = (event: Event) => {
     this.filterValue = (event.target as HTMLInputElement).value;
     this.venuesService.updateFilter({

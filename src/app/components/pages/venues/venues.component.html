@@ -1,7 +1,7 @@
 <app-list-page title="Venues"
-  (filterToggled)="filterToggled($event)"
-  (listClicked)="showList()"
-  (gridClicked)="showGrid()">
+  (filterToggled)="filterVenuesToggled($event)"
+  (listClicked)="showVenuesList()"
+  (gridClicked)="showVenuesGrid()">
   <ng-container filter>
     <mat-form-field>
       <mat-label>Filter</mat-label>

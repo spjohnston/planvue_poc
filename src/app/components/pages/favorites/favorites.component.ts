@@ -6,15 +6,32 @@ import { Component } from '@angular/core';
   styleUrls: ['./favorites.component.css']
 })
 export class FavoritesComponent {
-  filterToggled = (showingFilter:boolean) => {
-    console.log('filtering ', showingFilter);
+  /**
+   * This is a callback from the ListPageComponent when the "Filter" button 
+   * is toggled. Perform setup/cleanup actions here for showing/hiding the
+   * filter component.
+   */
+  filterFavoritesToggled = (showingFilter:boolean) => {
+    if (showingFilter) {
+      console.log('filtering favorites');
+    } else {
+      console.log('resetting favorites filter');
+    }
   }
 
-  showList = () => {
+  /**
+   * This is a callback from the ListPageComponent when the "List" button 
+   * is clicked.
+   */
+  showFavoritesList = () => {
     console.log('showing favorites list');
   }
 
-  showGrid = () => {
+  /**
+   * This is a callback from the ListPageComponent when the "Grid" button 
+   * is clicked.
+   */
+  showFavoritesGrid = () => {
     console.log('showing favorites grid');
   }
 }

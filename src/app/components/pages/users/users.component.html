@@ -1,7 +1,7 @@
 <app-list-page [title]="'Users'"
-  (filterToggled)="showFilter($event)"
-  (listClicked)="showList()"
-  (gridClicked)="showGrid()">
+  (filterToggled)="filterUsersToggled($event)"
+  (listClicked)="showUsersList()"
+  (gridClicked)="showUsersGrid()">
   <ng-container filter>
     filter users
   </ng-container>

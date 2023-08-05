@@ -6,15 +6,32 @@ import { Component } from '@angular/core';
   styleUrls: ['./locations.component.css']
 })
 export class LocationsComponent {
-  showFilter = (showingFilter:boolean) => {
-    console.log('filtering ', showingFilter);
+  /**
+   * This is a callback from the ListPageComponent when the "Filter" button 
+   * is toggled. Perform setup/cleanup actions here for showing/hiding the
+   * filter component.
+   */
+  showLocationsFilter = (showingFilter:boolean) => {
+    if (showingFilter) {
+      console.log('filtering locations');
+    } else {
+      console.log('resetting locations filter');
+    }
   }
 
-  showList = () => {
+  /**
+   * This is a callback from the ListPageComponent when the "List" button 
+   * is clicked.
+   */
+  showLocationsList = () => {
     console.log('showing locations list');
   }
 
-  showGrid = () => {
+  /**
+   * This is a callback from the ListPageComponent when the "Grid" button 
+   * is clicked.
+   */
+  showLocationsGrid = () => {
     console.log('showing locations grid');
   }
 }

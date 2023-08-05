@@ -10,18 +10,26 @@ import { VenueService } from 'src/app/services/venue.service';
   styleUrls: ['./venue-list.component.css']
 })
 export class VenueListComponent implements OnInit, OnDestroy {
-  
-  columns = ["name", "createdBy", "createdOn", "modifiedBy", "modifiedOn"];
+
+  columns:string[] = ["name", "createdBy", "createdOn", "modifiedBy", "modifiedOn"];
 
   datasource = new MatTableDataSource<Venue>();
 
   filterSubscription: Subscription;
 
+  private venuesAreFiltered:boolean = false;
+
   constructor(private venueService:VenueService) {
     this.filterSubscription = venueService.venueFilter$.subscribe(
       venueFilter => {
-        let filterValue = venueFilter.text?.trim().toLowerCase() || '';
-        this.datasource.filter = filterValue;
+        this.venuesAreFiltered = venueFilter != null;
+        if (venueFilter) {
+          console.log('filter value: ', venueFilter);
+          let filterValue = venueFilter.text?.trim().toLowerCase() || '';
+          this.datasource.filter = filterValue;
+        } else {
+          this.datasource.filter = '';
+        }
       }
     );
   }
@@ -38,5 +46,10 @@ export class VenueListComponent implements OnInit, OnDestroy {
 
   ngOnDestroy(): void {
     this.filterSubscription.unsubscribe();
+  }
+
+  getNoDataMessage():string {
+    return this.venuesAreFiltered ? 
+      'No venues found matching your filter criteria.' : 'No venues found.'
   }
 }

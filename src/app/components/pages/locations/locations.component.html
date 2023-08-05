@@ -1,7 +1,7 @@
 <app-list-page [title]="'Locations'"
-  (filterToggled)="showFilter($event)"
-  (listClicked)="showList()"
-  (gridClicked)="showGrid()">
+  (filterToggled)="showLocationsFilter($event)"
+  (listClicked)="showLocationsList()"
+  (gridClicked)="showLocationsGrid()">
   <ng-container filter>
     filter locations
   </ng-container>

@@ -54,12 +54,12 @@ export const VENUES:Venue[] = [
 })
 export class VenueService {
 
-  private venueFilterSource = new Subject<VenueFilter>();
+  private venueFilterSource = new Subject<VenueFilter|null>();
   venueFilter$ = this.venueFilterSource.asObservable();
 
   constructor() { }
 
-  updateFilter(venueFilter:VenueFilter): void {
+  updateFilter(venueFilter:VenueFilter|null): void {
     this.venueFilterSource.next(venueFilter);
   }
 

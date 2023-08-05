@@ -6,15 +6,32 @@ import { Component } from '@angular/core';
   styleUrls: ['./users.component.css']
 })
 export class UsersComponent {
-  showFilter = (showingFilter:boolean) => {
-    console.log('filtering ', showingFilter);
+  /**
+   * This is a callback from the ListPageComponent when the "Filter" button 
+   * is toggled. Perform setup/cleanup actions here for showing/hiding the
+   * filter component.
+   */
+  filterUsersToggled = (showingFilter:boolean) => {
+    if (showingFilter) {
+      console.log('filtering users');
+    } else {
+      console.log('resetting users filter');
+    }
   }
 
-  showList = () => {
+  /**
+   * This is a callback from the ListPageComponent when the "List" button 
+   * is clicked.
+   */
+  showUsersList = () => {
     console.log('showing users list');
   }
 
-  showGrid = () => {
+  /**
+   * This is a callback from the ListPageComponent when the "Grid" button 
+   * is clicked.
+   */
+  showUsersGrid = () => {
     console.log('showing users grid');
   }
 }

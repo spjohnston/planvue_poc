@@ -1,7 +1,7 @@
 <app-list-page [title]="'Favorites'"
-  (filterToggled)="filterToggled($event)"
-  (listClicked)="showList()"
-  (gridClicked)="showGrid()">
+  (filterToggled)="filterFavoritesToggled($event)"
+  (listClicked)="showFavoritesList()"
+  (gridClicked)="showFavoritesGrid()">
   <ng-container filter>
     filter favorites
   </ng-container>
