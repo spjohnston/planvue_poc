@@ -22,9 +22,20 @@
     </ng-container>
   </mat-toolbar>
 </header>
-<section class="content">
-  <router-outlet></router-outlet>
+
+<section class="loading" *ngIf="authService.isLoading$ | async; else loaded">
+  <div>
+    <h2>Loading...</h2>
+    <mat-spinner [color]="'accent'"></mat-spinner>
+</div>
 </section>
+
+<ng-template #loaded>
+  <section class="content">
+    <router-outlet></router-outlet>
+  </section>
+</ng-template>
+
 <footer>
   <img id="logo" src="/assets/images/logo_white.png">
   <span>Copyright &#169; {{ year }}</span>

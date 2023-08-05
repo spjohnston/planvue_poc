@@ -20,6 +20,17 @@ mat-toolbar button.active::after {
   content: ' ]';
 }
 
+section.loading div{
+  /* display: flex;
+  flex-direction: column;
+  justify-content: center; */
+  margin-left: auto;
+  margin-right: auto;
+  width: 100px;
+  text-align: center;
+  padding: 20px;
+}
+
 footer {
   display: flex;
   align-items: center;
