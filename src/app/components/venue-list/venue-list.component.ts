@@ -1,5 +1,6 @@
 import { Component, Input, OnDestroy, OnInit } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
+import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { Venue } from 'src/app/models/venue';
 import { VenueService } from 'src/app/services/venue.service';
@@ -19,7 +20,7 @@ export class VenueListComponent implements OnInit, OnDestroy {
 
   private venuesAreFiltered:boolean = false;
 
-  constructor(private venueService:VenueService) {
+  constructor(private venueService:VenueService, private router:Router) {
     this.filterSubscription = venueService.venueFilter$.subscribe(
       venueFilter => {
         this.venuesAreFiltered = venueFilter != null;
@@ -53,7 +54,8 @@ export class VenueListComponent implements OnInit, OnDestroy {
       'No venues found matching your filter criteria.' : 'No venues found.'
   }
 
-  selectVenue(venue:Venue):void  {
-    console.log(venue);
+  selectVenue(venueId:string):void  {
+    console.log(venueId);
+    this.router.navigate(["/venues/" + venueId]);
   }
 }

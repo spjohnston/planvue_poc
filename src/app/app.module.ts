@@ -28,6 +28,7 @@ import { UsersComponent } from './components/pages/users/users.component';
 import { UserComponent } from './components/user/user.component';
 import { ListPageComponent } from './components/list-page/list-page.component';
 import { VenueListComponent } from './components/venue-list/venue-list.component';
+import { VenueComponent } from './components/pages/venue/venue.component';
 
 @NgModule({
   declarations: [
@@ -41,7 +42,8 @@ import { VenueListComponent } from './components/venue-list/venue-list.component
     UsersComponent,
     UserComponent,
     ListPageComponent,
-    VenueListComponent
+    VenueListComponent,
+    VenueComponent
   ],
   imports: [
     BrowserModule,

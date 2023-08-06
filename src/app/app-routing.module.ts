@@ -5,6 +5,7 @@ import { AppPageTitleStrategy } from './app-page-title-strategy';
 import { ProfileComponent } from './components/pages/profile/profile.component';
 import { AuthGuard } from '@auth0/auth0-angular';
 import { TOOLBAR_PAGES } from './app.constants';
+import { VenueComponent } from './components/pages/venue/venue.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/welcome', pathMatch: 'full' },
@@ -17,6 +18,12 @@ const routes: Routes = [
     path: 'profile',
     title: 'My Profile',
     component: ProfileComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'venues/:venueId',
+    title: 'Venue',
+    component: VenueComponent,
     canActivate: [AuthGuard]
   }
 ];
