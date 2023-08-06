@@ -3,7 +3,7 @@ import { MatTableDataSource } from '@angular/material/table';
 import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { Venue } from 'src/app/models/venue';
-import { VenueService } from 'src/app/services/venue.service';
+import { VenueService } from 'src/app/services/venue/venue.service';
 
 @Component({
   selector: 'app-venue-list',

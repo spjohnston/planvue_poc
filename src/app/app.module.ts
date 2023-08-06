@@ -8,6 +8,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AuthModule } from '@auth0/auth0-angular';
 
 import { MatButtonModule } from '@angular/material/button';
+import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { MatExpansionModule } from '@angular/material/expansion';
@@ -15,6 +16,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatTableModule } from '@angular/material/table';
+import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { MatToolbarModule } from '@angular/material/toolbar';
 
 import { WelcomeComponent } from './components/pages/welcome/welcome.component';
@@ -29,6 +31,7 @@ import { UserComponent } from './components/user/user.component';
 import { ListPageComponent } from './components/list-page/list-page.component';
 import { VenueListComponent } from './components/venue-list/venue-list.component';
 import { VenueComponent } from './components/pages/venue/venue.component';
+import { DetailPageComponent } from './components/detail-page/detail-page.component';
 
 @NgModule({
   declarations: [
@@ -43,7 +46,8 @@ import { VenueComponent } from './components/pages/venue/venue.component';
     UserComponent,
     ListPageComponent,
     VenueListComponent,
-    VenueComponent
+    VenueComponent,
+    DetailPageComponent
   ],
   imports: [
     BrowserModule,
@@ -51,6 +55,7 @@ import { VenueComponent } from './components/pages/venue/venue.component';
     BrowserAnimationsModule,
     AuthModule.forRoot(environment.auth),
     MatButtonModule,
+    MatCardModule,
     MatExpansionModule,
     MatFormFieldModule,
     MatIconModule,
@@ -58,6 +63,7 @@ import { VenueComponent } from './components/pages/venue/venue.component';
     MatMenuModule,
     MatProgressSpinnerModule,
     MatTableModule,
+    MatButtonToggleModule,
     MatToolbarModule
   ],
   providers: [],

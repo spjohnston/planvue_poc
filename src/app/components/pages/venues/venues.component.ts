@@ -1,6 +1,6 @@
 import { Component, ElementRef, EventEmitter, Inject, Input, Output, ViewChild } from '@angular/core';
 import { MatInput } from '@angular/material/input';
-import { VenueService } from 'src/app/services/venue.service';
+import { VenueService } from 'src/app/services/venue/venue.service';
 
 @Component({
   selector: 'app-venues',

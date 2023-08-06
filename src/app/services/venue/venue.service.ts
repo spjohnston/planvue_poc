@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
-import { Venue } from '../models/venue';
-import { VenueFilter } from '../models/venue-filter';
-import { Subject } from 'rxjs';
+import { Venue } from '../../models/venue';
+import { VenueFilter } from '../../models/venue-filter';
+import { Observable, Subject, of } from 'rxjs';
 
 export const VENUES:Venue[] = [
   {
@@ -67,13 +67,14 @@ export class VenueService {
     return VENUES.sort((v1:Venue, v2:Venue) => v1.name > v2.name ? 1 : -1 );
   }
 
-  getVenue(id:string): Venue  {
+  getVenue(id:string): Observable<Venue>  {
+    console.log('looking for venue: ', id);
     let venue = VENUES.find(v => v.id === id);
     if (venue === undefined) {
       throw new Error(`No venue found with id: ${id}`);
       
     }
     
-    return venue;
+    return of(venue);
   }
 }

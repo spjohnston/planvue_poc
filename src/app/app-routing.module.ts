@@ -6,6 +6,7 @@ import { ProfileComponent } from './components/pages/profile/profile.component';
 import { AuthGuard } from '@auth0/auth0-angular';
 import { TOOLBAR_PAGES } from './app.constants';
 import { VenueComponent } from './components/pages/venue/venue.component';
+import { venueResolver } from './services/venue/venue.resolver';
 
 const routes: Routes = [
   { path: '', redirectTo: '/welcome', pathMatch: 'full' },
@@ -24,7 +25,8 @@ const routes: Routes = [
     path: 'venues/:venueId',
     title: 'Venue',
     component: VenueComponent,
-    canActivate: [AuthGuard]
+    canActivate: [AuthGuard],
+    resolve: { venue: venueResolver }
   }
 ];
 
