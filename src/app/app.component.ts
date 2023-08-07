@@ -1,4 +1,4 @@
-import { Component, Inject } from '@angular/core';
+import { Component, Inject, inject } from '@angular/core';
 import { AuthService } from '@auth0/auth0-angular';
 import { APP_TITLE, TOOLBAR_PAGES } from './app.constants';
 import { DOCUMENT } from '@angular/common';
@@ -11,9 +11,11 @@ import { Route } from '@angular/router';
   providers: [AuthService]
 })
 export class AppComponent {
+  authService = inject(AuthService);
+
   title = APP_TITLE;
   year = new Date().getFullYear();
-  constructor(@Inject(DOCUMENT) public document: Document, public authService: AuthService){}
+  constructor(@Inject(DOCUMENT) public document: Document){}
 
   getToolbarPageRoutes():Route[] {
     return TOOLBAR_PAGES;

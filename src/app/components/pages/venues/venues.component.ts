@@ -1,4 +1,4 @@
-import { Component, ElementRef, EventEmitter, Inject, Input, Output, ViewChild } from '@angular/core';
+import { Component, ElementRef, EventEmitter, Inject, Input, Output, ViewChild, inject } from '@angular/core';
 import { MatInput } from '@angular/material/input';
 import { VenueService } from 'src/app/services/venue/venue.service';
 
@@ -9,13 +9,13 @@ import { VenueService } from 'src/app/services/venue/venue.service';
 })
 export class VenuesComponent {
 
+  private venueService = inject(VenueService);
+
   @ViewChild('filter') 
   filter!: ElementRef<HTMLInputElement>;
 
   @Input({required: true})
   filterValue:string = '';
-
-  constructor(private venuesService:VenueService) {}
 
   /**
    * This is a callback from the ListPageComponent when the "Filter" button 
@@ -28,7 +28,7 @@ export class VenuesComponent {
     } else {
       console.log('resetting venues filter');
       this.filterValue = '';
-      this.venuesService.updateFilter(null);
+      this.venueService.updateFilter(null);
     }
   }
 
@@ -54,7 +54,7 @@ export class VenuesComponent {
    */
   filterUpdated = (event: Event) => {
     this.filterValue = (event.target as HTMLInputElement).value;
-    this.venuesService.updateFilter({
+    this.venueService.updateFilter({
       'text': this.filterValue,
       'active': false
     })

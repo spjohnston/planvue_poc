@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { AuthService } from '@auth0/auth0-angular';
 
 @Component({
@@ -7,5 +7,5 @@ import { AuthService } from '@auth0/auth0-angular';
   styleUrls: ['./profile.component.css']
 })
 export class ProfileComponent {
-  constructor(public authService:AuthService) {}
+  authService = inject(AuthService);
 }

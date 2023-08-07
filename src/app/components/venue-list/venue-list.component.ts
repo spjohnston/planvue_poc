@@ -1,4 +1,4 @@
-import { Component, Input, OnDestroy, OnInit } from '@angular/core';
+import { Component, Input, OnDestroy, OnInit, inject } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
 import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
@@ -11,6 +11,8 @@ import { VenueService } from 'src/app/services/venue/venue.service';
   styleUrls: ['./venue-list.component.css']
 })
 export class VenueListComponent implements OnInit, OnDestroy {
+  private venueService = inject(VenueService);
+  private router = inject(Router);
 
   columns:string[] = ["name", "createdBy", "createdOn", "modifiedBy", "modifiedOn"];
 
@@ -20,8 +22,8 @@ export class VenueListComponent implements OnInit, OnDestroy {
 
   private venuesAreFiltered:boolean = false;
 
-  constructor(private venueService:VenueService, private router:Router) {
-    this.filterSubscription = venueService.venueFilter$.subscribe(
+  constructor() {
+    this.filterSubscription = this.venueService.venueFilter$.subscribe(
       venueFilter => {
         this.venuesAreFiltered = venueFilter != null;
         if (venueFilter) {

@@ -1,4 +1,4 @@
-import { Component, Inject } from '@angular/core';
+import { Component, Inject, inject } from '@angular/core';
 import { AuthService } from '@auth0/auth0-angular';
 import { DOCUMENT } from '@angular/common';
 
@@ -18,7 +18,9 @@ import { DOCUMENT } from '@angular/common';
   styles: [],
 })
 export class AuthButtonComponent {
-  constructor(@Inject(DOCUMENT) public document: Document, public auth: AuthService) {}
+  auth = inject(AuthService);
+
+  constructor(@Inject(DOCUMENT) public document: Document) {}
 
   login():void {
     this.auth.loginWithRedirect();

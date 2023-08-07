@@ -57,8 +57,6 @@ export class VenueService {
   private venueFilterSource = new Subject<VenueFilter|null>();
   venueFilter$ = this.venueFilterSource.asObservable();
 
-  constructor() { }
-
   updateFilter(venueFilter:VenueFilter|null): void {
     this.venueFilterSource.next(venueFilter);
   }
