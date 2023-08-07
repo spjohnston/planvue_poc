@@ -1,5 +1,8 @@
 <ng-container *ngIf="venue$ | async as venue">
-<app-detail-page [detailTitle]="venue.name">
-
-</app-detail-page>
+  <app-detail-page 
+    [detailTitle]="venue.name" 
+    [views]="views"
+    (viewChanged)="handleViewChanged($event)">
+    <router-outlet></router-outlet>
+  </app-detail-page>
 </ng-container>

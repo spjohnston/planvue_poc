@@ -9,16 +9,19 @@
         <span class="controls">
           <button mat-icon-button [color]="showFilter ? 'accent' : 'primary'" 
               (click)="filter($event)"
+              matTooltip="Filter"
               aria-label="Filter">
             <mat-icon>search</mat-icon>
           </button>
           <button mat-icon-button [color]="view === 'list' ? 'accent' : 'primary'" 
               (click)="viewList($event)" 
+              matTooltip="List View"
               aria-label="List View">
             <mat-icon>list-outlined</mat-icon>
           </button>
           <button mat-icon-button [color]="view === 'grid' ? 'accent' : 'primary'" 
               (click)="viewGrid($event)"
+              matTooltip="Tile View"
               aria-label="Tile View">
             <mat-icon>grid_view</mat-icon>
           </button>

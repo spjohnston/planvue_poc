@@ -8,3 +8,7 @@ app-root {
 
 .page {
 }
+
+mat-toolbar span.spacer {
+  flex: 1 1 auto;
+}

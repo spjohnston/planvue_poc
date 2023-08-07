@@ -7,6 +7,10 @@ import { AuthGuard } from '@auth0/auth0-angular';
 import { TOOLBAR_PAGES } from './app.constants';
 import { VenueComponent } from './components/pages/venue/venue.component';
 import { venueResolver } from './services/venue/venue.resolver';
+import { MapComponent } from './components/map/map.component';
+import { TemplatesComponent } from './components/templates/templates.component';
+import { VenueInfoComponent } from './components/venue-info/venue-info.component';
+import { VenueLocationsComponent } from './components/venue-locations/venue-locations.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/welcome', pathMatch: 'full' },
@@ -26,7 +30,22 @@ const routes: Routes = [
     title: 'Venue',
     component: VenueComponent,
     canActivate: [AuthGuard],
-    resolve: { venue: venueResolver }
+    resolve: { venue: venueResolver },
+    children: [
+      {
+        path:'', 
+        component: VenueInfoComponent,
+      },{
+        path:'map', 
+        component: MapComponent
+      },{
+        path:'templates', 
+        component: TemplatesComponent
+      },{
+        path:'locations', 
+        component: VenueLocationsComponent
+      }
+    ]
   }
 ];
 

@@ -9,10 +9,6 @@
   font-size: 100%;
 }
 
-mat-toolbar span.spacer {
-  flex: 1 1 auto;
-}
-
 mat-toolbar button.active::before {
   content: '[ ';
 }

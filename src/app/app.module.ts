@@ -18,6 +18,7 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatTableModule } from '@angular/material/table';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatTooltipModule } from '@angular/material/tooltip';
 
 import { WelcomeComponent } from './components/pages/welcome/welcome.component';
 import { ProfileComponent } from './components/pages/profile/profile.component';
@@ -32,6 +33,10 @@ import { ListPageComponent } from './components/list-page/list-page.component';
 import { VenueListComponent } from './components/venue-list/venue-list.component';
 import { VenueComponent } from './components/pages/venue/venue.component';
 import { DetailPageComponent } from './components/detail-page/detail-page.component';
+import { VenueInfoComponent } from './components/venue-info/venue-info.component';
+import { MapComponent } from './components/map/map.component';
+import { TemplatesComponent } from './components/templates/templates.component';
+import { VenueLocationsComponent } from './components/venue-locations/venue-locations.component';
 
 @NgModule({
   declarations: [
@@ -47,7 +52,11 @@ import { DetailPageComponent } from './components/detail-page/detail-page.compon
     ListPageComponent,
     VenueListComponent,
     VenueComponent,
-    DetailPageComponent
+    DetailPageComponent,
+    VenueInfoComponent,
+    MapComponent,
+    TemplatesComponent,
+    VenueLocationsComponent
   ],
   imports: [
     BrowserModule,
@@ -64,7 +73,8 @@ import { DetailPageComponent } from './components/detail-page/detail-page.compon
     MatProgressSpinnerModule,
     MatTableModule,
     MatButtonToggleModule,
-    MatToolbarModule
+    MatToolbarModule,
+    MatTooltipModule
   ],
   providers: [],
   bootstrap: [AppComponent]

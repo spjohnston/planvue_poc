@@ -3,4 +3,14 @@
     <mat-icon>arrow_back_ios</mat-icon>
   </button>
   <h2>{{ detailTitle }}</h2>
+  <span class="spacer"></span>
+  <span class="controls">
+    <button mat-icon-button *ngFor="let view of views" [attr.aria-label]="view.label"
+        [matTooltip]="view.label"
+        [color]="currentView == view ? 'accent' : 'primary'"
+        (click)="changeView(view)">
+        <mat-icon fontSet="material-icons-outlined">{{ view.icon }}</mat-icon>
+    </button>
+  </span>
 </mat-toolbar>
+<ng-content></ng-content>
