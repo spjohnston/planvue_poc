@@ -1,14 +1,13 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
-import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ReactiveFormsModule } from '@angular/forms';
 
 import { AuthModule } from '@auth0/auth0-angular';
 
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
+import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { MatExpansionModule } from '@angular/material/expansion';
@@ -20,6 +19,8 @@ import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatTooltipModule } from '@angular/material/tooltip';
 
+import { AppRoutingModule } from './app-routing.module';
+import { AppComponent } from './app.component';
 import { WelcomeComponent } from './components/pages/welcome/welcome.component';
 import { ProfileComponent } from './components/pages/profile/profile.component';
 import { AuthButtonComponent } from './components/auth-button/auth-button.component';
@@ -65,6 +66,7 @@ import { VenueLocationsComponent } from './components/venue-locations/venue-loca
     AuthModule.forRoot(environment.auth),
     MatButtonModule,
     MatCardModule,
+    MatCheckboxModule,
     MatExpansionModule,
     MatFormFieldModule,
     MatIconModule,
@@ -74,7 +76,8 @@ import { VenueLocationsComponent } from './components/venue-locations/venue-loca
     MatTableModule,
     MatButtonToggleModule,
     MatToolbarModule,
-    MatTooltipModule
+    MatTooltipModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

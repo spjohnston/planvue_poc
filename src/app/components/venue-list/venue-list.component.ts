@@ -3,6 +3,7 @@ import { MatTableDataSource } from '@angular/material/table';
 import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { Venue } from 'src/app/models/venue';
+import { VenueFilter } from 'src/app/models/venue-filter';
 import { VenueService } from 'src/app/services/venue/venue.service';
 
 @Component({
@@ -25,14 +26,12 @@ export class VenueListComponent implements OnInit, OnDestroy {
   constructor() {
     this.filterSubscription = this.venueService.venueFilter$.subscribe(
       venueFilter => {
-        this.venuesAreFiltered = venueFilter != null;
-        if (venueFilter) {
-          console.log('filter value: ', venueFilter);
-          let filterValue = venueFilter.text?.trim().toLowerCase() || '';
-          this.datasource.filter = filterValue;
-        } else {
-          this.datasource.filter = '';
-        }
+        // this.venuesAreFiltered = venueFilter != null;
+        // if (venueFilter) {
+          this.datasource.filter = JSON.stringify(venueFilter) ;
+        // } else {
+          // this.datasource.filter = '';
+        // }
       }
     );
   }
@@ -40,10 +39,26 @@ export class VenueListComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     this.datasource.data = this.venueService.getVenues();
     this.datasource.filterPredicate = function (venue:Venue, filter:string) {
-      return !filter || (
-        venue.name.toLocaleLowerCase().indexOf(filter) != -1 ||
-        venue.createdBy.name?.toLocaleLowerCase().indexOf(filter) != -1
-      );
+      if (filter) {
+        const venueFilter:VenueFilter = JSON.parse(filter);
+        const filterText = venueFilter.text?.trim().toLowerCase() || '';
+        if (venueFilter.active) {
+          // user is requesting to only see active venues that match their filter
+          // criteria
+          return venue.active && (
+            venue.name.toLocaleLowerCase().indexOf(filterText) != -1 ||
+            venue.createdBy.name?.toLocaleLowerCase().indexOf(filterText) != -1
+          );
+        }
+
+        // return any venue that matches filter criteria regardless of active flag
+        return (
+          venue.name.toLocaleLowerCase().indexOf(filterText) != -1 ||
+          venue.createdBy.name?.toLocaleLowerCase().indexOf(filterText) != -1
+        );
+      }
+
+      return false;
     };
   }
 

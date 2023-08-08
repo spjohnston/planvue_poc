@@ -4,6 +4,7 @@ export interface Venue {
   id: string;
   name: string;
   imageUri?: string;
+  active: boolean;
   createdBy: User;
   createdOn: Date;
   modifiedBy?: User;

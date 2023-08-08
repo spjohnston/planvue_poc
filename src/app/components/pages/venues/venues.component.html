@@ -3,10 +3,16 @@
   (listClicked)="showVenuesList()"
   (gridClicked)="showVenuesGrid()">
   <ng-container filter>
-    <mat-form-field>
-      <mat-label>Filter</mat-label>
-      <input #filter matInput [value]="filterValue" (keyup)="filterUpdated($event)">
-    </mat-form-field>
+    <form [formGroup]="filterForm">
+      <mat-form-field>
+        <mat-label>Filter</mat-label>
+        <input #filter matInput
+          formControlName="text" >
+      </mat-form-field>
+      <mat-checkbox formControlName="active">
+        Show Only Active
+      </mat-checkbox>
+    </form>
   </ng-container>
   <!--The list view of venues-->
   <ng-container list>

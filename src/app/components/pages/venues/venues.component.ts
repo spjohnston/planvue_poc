@@ -1,5 +1,7 @@
-import { Component, ElementRef, EventEmitter, Inject, Input, Output, ViewChild, inject } from '@angular/core';
+import { Component, ElementRef, EventEmitter, Inject, Input, OnInit, Output, ViewChild, inject } from '@angular/core';
+import { FormBuilder, FormGroup } from '@angular/forms';
 import { MatInput } from '@angular/material/input';
+import { VenueFilter } from 'src/app/models/venue-filter';
 import { VenueService } from 'src/app/services/venue/venue.service';
 
 @Component({
@@ -7,15 +9,24 @@ import { VenueService } from 'src/app/services/venue/venue.service';
   templateUrl: './venues.component.html',
   styleUrls: ['./venues.component.css']
 })
-export class VenuesComponent {
+export class VenuesComponent implements OnInit {
 
+  private formBuilder = inject(FormBuilder);
   private venueService = inject(VenueService);
 
   @ViewChild('filter') 
-  filter!: ElementRef<HTMLInputElement>;
+  filterTextField!: ElementRef<HTMLInputElement>;
 
-  @Input({required: true})
-  filterValue:string = '';
+  filterForm: FormGroup = this.formBuilder.group({
+    text: '',
+    active: false
+  });
+
+  ngOnInit(): void {
+    this.filterForm.valueChanges.subscribe(val => {
+      this.venueService.updateFilter(val);
+    });
+  }
 
   /**
    * This is a callback from the ListPageComponent when the "Filter" button 
@@ -24,11 +35,9 @@ export class VenuesComponent {
    */
   filterVenuesToggled = (showingFilter:boolean) => {
     if (showingFilter) {
-      this.filter.nativeElement.focus();
+      this.filterTextField.nativeElement.focus();
     } else {
-      console.log('resetting venues filter');
-      this.filterValue = '';
-      this.venueService.updateFilter(null);
+      this.filterForm.reset(new VenueFilter());
     }
   }
 
@@ -46,17 +55,5 @@ export class VenuesComponent {
    */
   showVenuesGrid = () => {
     console.log('showing venues grid');
-  }
-
-  /**
-   * This function is called on keyup from the `filter` input field
-   * @param event the keyup event
-   */
-  filterUpdated = (event: Event) => {
-    this.filterValue = (event.target as HTMLInputElement).value;
-    this.venueService.updateFilter({
-      'text': this.filterValue,
-      'active': false
-    })
   }
 }
