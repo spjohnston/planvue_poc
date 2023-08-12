@@ -33,12 +33,8 @@ export class VenueInfoComponent implements OnInit {
       id: [{value: '', disabled: true}],
       name: ['', [Validators.required]],
       active: false,
-      imageUri: ['', [Validators.required]]
+      imageName: ['', [Validators.required]]
     });
-  }
-
-  hasImage():boolean {
-    return !this.venuForm.get('imageUri')?.invalid ?? false;
   }
 
   selectVenueImage():void {
@@ -57,6 +53,17 @@ export class VenueInfoComponent implements OnInit {
   }
 
   getImage():string {
-    return this.venuForm.get('imageUri')?.value ?? '';
+    const venueId = this.venuForm.get('id')?.value
+    const imageName = this.venuForm.get('imageName')?.value
+
+    if (imageName) {
+      return `/assets/images/venues/${venueId}/${imageName}`; 
+    }
+
+    return '';
+  }
+
+  hasImage():boolean {
+    return this.getImage() !== '';
   }
 }

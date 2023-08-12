@@ -21,28 +21,28 @@ export class ListPageComponent {
   @Output()
   gridClicked: EventEmitter<void> = new EventEmitter<void>();
 
-  headerClick = ($evt:any) => {
+  headerClick ($evt:any) {
     $evt.stopPropagation();
     console.log('filter header clicked...will toggle filter');
   }
 
-  filter = ($evt:any) => {
+  filter($evt:any) {
     $evt.stopPropagation();
     this.showFilter = !this.showFilter;
   }
 
-  setFilterFlag = (showFilter:boolean) => {
+  setFilterFlag(showFilter:boolean) {
     this.showFilter = showFilter;
     this.filterToggled.emit(this.showFilter);
   }
 
-  viewList = ($evt:any) => {
+  viewList($evt:any) {
     $evt.stopPropagation();
     this.view = 'list';
     this.listClicked.emit();
   }
 
-  viewGrid = ($evt:any) => {
+  viewGrid($evt:any) {
     $evt.stopPropagation();
     this.view = 'grid';
     this.gridClicked.emit();

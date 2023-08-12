@@ -15,7 +15,7 @@ export class VenueListComponent implements OnInit, OnDestroy {
   private venueService = inject(VenueService);
   private router = inject(Router);
 
-  columns:string[] = ["name", "createdBy", "createdOn", "modifiedBy", "modifiedOn"];
+  columns:string[] = ["name", "createdBy", "createdOn"];//, "modifiedBy", "modifiedOn"];
 
   datasource = new MatTableDataSource<Venue>();
 
