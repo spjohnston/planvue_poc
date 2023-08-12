@@ -1,5 +1,43 @@
-venue
-<p>
-  ID: {{ venue?.id }}
-</p>
-<img [src]="venue?.imageUri" />
+<div class="wrapper">
+  <form [formGroup]="venuForm">
+    <div class="fields">
+      <mat-form-field>
+        <mat-label>ID</mat-label>
+        <input matInput formControlName="id" >
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Name</mat-label>
+        <input matInput formControlName="name" data-1p-ignore>
+      </mat-form-field>
+      <mat-slide-toggle formControlName="active" color="primary">
+        Active
+      </mat-slide-toggle> 
+      <mat-form-field>
+        <mat-label>Image</mat-label>
+        <input matInput formControlName="imageUri" data-1p-ignore>
+        <button *ngIf="venuForm.value.imageUri" matSuffix mat-icon-button aria-label="Clear" 
+            (click)="venuForm.get('imageUri')?.reset();">
+          <mat-icon>close</mat-icon>
+        </button>
+      </mat-form-field>
+    </div>
+    <ng-container *ngIf="hasImage(); else selectImage">
+    <div class="photo">
+      <img [src]="getImage()" />
+    </div>
+  </ng-container>
+  <ng-template #selectImage>
+    <div class="select-image">
+      <button mat-raised-button 
+        (click)="selectVenueImage()"
+        color="warn">Select Image</button>
+    </div> 
+  </ng-template>
+  </form>
+
+  {{ venuForm.valid }}
+  {{ venuForm.getRawValue() | json }}
+  <input type="file" id="imageSelector" name="image" #imageSelector
+      accept="image/*"
+      (change)="imageSelected($event)" />
+</div>

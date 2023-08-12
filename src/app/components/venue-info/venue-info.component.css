@@ -1,0 +1,49 @@
+.wrapper {
+  padding:20px;
+}
+
+form {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+div.fields {
+  display: flex;
+  flex-direction: column;
+  min-width: 50%;
+}
+
+mat-slide-toggle {
+  padding-bottom: 22px;
+}
+
+div.photo {
+  position: relative;
+  /* display: flex;
+  flex-direction: column; */
+}
+
+div.photo>img {
+  display: inline;
+  max-height: 300px;
+  border: 1px solid;
+}
+div.photo>button {
+  /* margin-top: 1px;
+  margin-right: 2px; */
+  /* position:relative;
+  top:0;
+  left:0; */
+  float: right;
+}
+
+.select-image {
+  display: flex;
+  align-items: center;
+  padding: 0px 40px
+}
+#imageSelector {
+  display: none;
+}

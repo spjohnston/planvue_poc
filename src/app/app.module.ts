@@ -16,6 +16,7 @@ import { MatMenuModule } from '@angular/material/menu';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatTableModule } from '@angular/material/table';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatTooltipModule } from '@angular/material/tooltip';
 
@@ -75,6 +76,7 @@ import { VenueLocationsComponent } from './components/venue-locations/venue-loca
     MatProgressSpinnerModule,
     MatTableModule,
     MatButtonToggleModule,
+    MatSlideToggleModule,
     MatToolbarModule,
     MatTooltipModule,
     ReactiveFormsModule
