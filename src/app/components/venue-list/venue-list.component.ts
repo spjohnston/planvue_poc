@@ -37,6 +37,7 @@ export class VenueListComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
+    console.log('venue list...');
     this.datasource.data = this.venueService.getVenues();
     this.datasource.filterPredicate = function (venue:Venue, filter:string) {
       if (filter) {

@@ -1,0 +1,16 @@
+<section class="grid">
+  <mat-card *ngFor="let venue of getVenues() | async" class="venue">
+    <mat-card-header>
+      <mat-card-title>{{ venue.name }}</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <div class="image" appBackgroundImage [url]="getImage(venue)">
+      </div>
+      <!-- <img mat-card-image [src]="getImage(venue)" alt="Photo of a Shiba Inu"> -->
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-raised-button>Venue Map</button>
+      <button mat-raised-button>Templates</button>
+    </mat-card-actions>
+  </mat-card>
+</section>

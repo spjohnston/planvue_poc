@@ -39,6 +39,8 @@ import { VenueInfoComponent } from './components/venue-info/venue-info.component
 import { MapComponent } from './components/map/map.component';
 import { TemplatesComponent } from './components/templates/templates.component';
 import { VenueLocationsComponent } from './components/venue-locations/venue-locations.component';
+import { VenueGridComponent } from './components/venue-grid/venue-grid.component';
+import { BackgroundImageDirective } from './directives/background-image.directive';
 
 @NgModule({
   declarations: [
@@ -58,7 +60,9 @@ import { VenueLocationsComponent } from './components/venue-locations/venue-loca
     VenueInfoComponent,
     MapComponent,
     TemplatesComponent,
-    VenueLocationsComponent
+    VenueLocationsComponent,
+    VenueGridComponent,
+    BackgroundImageDirective
   ],
   imports: [
     BrowserModule,

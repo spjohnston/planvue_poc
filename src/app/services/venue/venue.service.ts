@@ -50,6 +50,17 @@ export const VENUES:Venue[] = [
       name: "Steve"
     },
     createdOn: new Date()
+  },{
+    id: "2a8f554d-8778-4ec2-83b8-894870a29d66",
+    name: "Disney's Yacht & Beach Club Resort",
+    imageName: "Yacht-Beach_ICON_forPlanvue.png",
+    active: true,
+    createdBy:{
+      id: "8140d093-a625-4402-89d7-7d36f5fa8c59",
+      username: "jr@halo3.net",
+      name: "James"
+    },
+    createdOn: new Date()
   }
 ];
 
@@ -68,6 +79,10 @@ export class VenueService {
 
   getVenues(): Venue[] {
     return VENUES.sort((v1:Venue, v2:Venue) => v1.name > v2.name ? 1 : -1 );
+  }
+
+  getVenuesTemp(): Observable<Venue[]> {
+    return of(VENUES.sort((v1:Venue, v2:Venue) => v1.name > v2.name ? 1 : -1 ));
   }
 
   getVenue(id:string): Observable<Venue>  {
