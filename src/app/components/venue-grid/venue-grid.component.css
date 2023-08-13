@@ -27,11 +27,13 @@ mat-card-actions {
   flex-wrap: wrap;
 }
 
-div.image {
+a.image {
+  display: block;
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center center;
   height: 100%;
+  cursor: pointer;
 }
 
 .venue {
